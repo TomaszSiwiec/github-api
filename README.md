@@ -11,7 +11,7 @@ Spring boot application to download information about GitHub users.
 - Docker containerization
   
 
-## Użyte technologie
+## Technologies
 
 - **Spring Boot 3**
 - **Spring Web**
