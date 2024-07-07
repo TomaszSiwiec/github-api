@@ -54,3 +54,7 @@ dependencyManagement {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+bootJar {
+    archiveFileName = 'github-user-service-0.0.1-SNAPSHOT.jar'
+}
