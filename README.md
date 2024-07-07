@@ -19,6 +19,7 @@ Spring boot application to download information about GitHub users.
 - **H2 Database**
 - **Spring Cloud OpenFeign**
 - **JUnit 5**
+- **Spock**
 - **Mockito**
 - **Swagger/OpenAPI**
 - **Docker**
