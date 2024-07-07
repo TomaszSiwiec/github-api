@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/users")
 @RequiredArgsConstructor
-public class UserAPI {
+public class UserController {
 
     private final UserService userService;
 

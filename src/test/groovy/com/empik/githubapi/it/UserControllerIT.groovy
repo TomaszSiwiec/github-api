@@ -1,6 +1,6 @@
 package com.empik.githubapi.it
 
-import com.empik.githubapi.controller.UserAPI
+import com.empik.githubapi.controller.UserController
 import com.empik.githubapi.dto.UserResponse
 import com.empik.githubapi.exception.GitHubUserNotFoundException
 import com.empik.githubapi.service.UserService
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @ImportAutoConfiguration([FeignAutoConfiguration.class])
-@WebMvcTest(controllers = [UserAPI.class])
+@WebMvcTest(controllers = [UserController.class])
 class UserControllerIT extends Specification {
 
     @Autowired
