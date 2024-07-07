@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "8cdece17-0fd6-4d7c-bfe6-65fd89021d71",
+		"name": "GitHub user API collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9056926"
+	},
+	"item": [
+		{
+			"name": "GetUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/TomaszSiwiec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"TomaszSiwiec"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
