@@ -5,6 +5,7 @@ import com.empik.githubapi.client.GitHubUser;
 import com.empik.githubapi.dto.UserResponse;
 import com.empik.githubapi.exception.GitHubUserNotFoundException;
 import com.empik.githubapi.service.UserService;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -33,7 +34,8 @@ public class UserServiceIT {
         // given
         String login = "TomaszSiwiec";
         GitHubUser gitHubUser = exampleGitHubUser();
-        Mockito.when(gitHubClient.getUser(login)).thenReturn(gitHubUser);
+        Mockito.when(gitHubClient.getUser(login))
+                .thenReturn(gitHubUser);
 
         // when
         UserResponse response = userService.getUser(login);
@@ -52,7 +54,8 @@ public class UserServiceIT {
     public void shouldThrowExceptionForInvalidUser() {
         // given
         String login = "TomaszSiwiec123";
-        Mockito.when(gitHubClient.getUser(login)).thenThrow(new RuntimeException());
+        Mockito.when(gitHubClient.getUser(login))
+                .thenThrow(new RuntimeException());
 
         // then
         assertThrows(GitHubUserNotFoundException.class, () -> userService.getUser(login));

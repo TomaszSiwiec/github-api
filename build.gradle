@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version '3.3.1'
     id 'io.spring.dependency-management' version '1.1.5'
     id 'groovy'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 group = 'com.empik'
@@ -57,4 +58,16 @@ tasks.named('test') {
 
 bootJar {
     archiveFileName = 'github-user-service-0.0.1-SNAPSHOT.jar'
+}
+
+spotless {
+    setEnforceCheck(false)
+    java {
+        toggleOffOn("@formatter:off", "@formatter:on")
+        encoding("UTF-8")
+        removeUnusedImports()
+        replaceRegex("remove star imports", "import\\s+(?:static\\s+)?[^\\*\\s]+\\*;(\\r\\n|\\r|\\n)", "//FIXME star import is not allowed")
+        importOrder("com.empik", "com", "org", "java", "javax", "", "\\#")
+        eclipse().configFile("eclipse-code-formatter.xml")
+    }
 }

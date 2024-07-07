@@ -3,6 +3,7 @@ package com.empik.githubapi.mapper;
 import com.empik.githubapi.client.GitHubUser;
 import com.empik.githubapi.config.MapstructConfig;
 import com.empik.githubapi.dto.UserResponse;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

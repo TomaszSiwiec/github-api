@@ -1,7 +1,6 @@
 package com.empik.githubapi.entity;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//FIXME star import is not allowedimport lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;

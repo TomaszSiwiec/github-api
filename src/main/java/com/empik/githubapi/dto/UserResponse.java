@@ -1,8 +1,8 @@
 package com.empik.githubapi.dto;
 
-import lombok.Builder;
-
 import java.time.Instant;
+
+import lombok.Builder;
 
 @Builder
 public record UserResponse(
@@ -12,6 +12,5 @@ public record UserResponse(
         String type,
         String avatarUrl,
         Instant createdAt,
-        Double calculations
-) {
+        Double calculations) {
 }

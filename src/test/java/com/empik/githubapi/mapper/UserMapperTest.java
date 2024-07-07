@@ -2,6 +2,7 @@ package com.empik.githubapi.mapper;
 
 import com.empik.githubapi.client.GitHubUser;
 import com.empik.githubapi.dto.UserResponse;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;

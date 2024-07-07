@@ -1,8 +1,8 @@
 package com.empik.githubapi.exception;
 
-import lombok.Builder;
-
 import java.time.LocalDateTime;
+
+import lombok.Builder;
 
 @Builder
 public record ExceptionResponseBody(
@@ -10,6 +10,5 @@ public record ExceptionResponseBody(
         int status,
         String error,
         String path,
-        String message
-) {
+        String message) {
 }

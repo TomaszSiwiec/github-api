@@ -8,12 +8,13 @@ import com.empik.githubapi.entity.User;
 import com.empik.githubapi.exception.GitHubUserNotFoundException;
 import com.empik.githubapi.repository.UserRepository;
 import com.empik.githubapi.service.UserService;
-import lombok.RequiredArgsConstructor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +39,5 @@ class UserServiceImpl implements UserService {
             LOGGER.error("Error fetching user information for login: {}", login, ex);
             throw new GitHubUserNotFoundException(ex.getMessage());
         }
-
     }
 }

@@ -1,6 +1,7 @@
 package com.empik.githubapi.repository;
 
 import com.empik.githubapi.entity.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,10 +17,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
         if (user.isPresent()) {
             return user.get();
         }
-        User newUser = User.builder()
-                .login(login)
-                .requestCount(0)
-                .build();
+        User newUser =
+                User.builder()
+                        .login(login)
+                        .requestCount(0)
+                        .build();
         save(newUser);
         return newUser;
     }
