@@ -35,7 +35,7 @@ class UserServiceImpl implements UserService {
                         .getOrElseThrow(error -> {
                             String errorMessage = String.format("Error fetching user information for login: %s", login);
                             LOGGER.error(errorMessage, error);
-                            return new GitHubUserNotFoundException(errorMessage);
+                            return new GitHubUserNotFoundException(login);
                         });
         User user = userRepository.findOrCreateByLogin(login);
         user.incrementRequestCount();
