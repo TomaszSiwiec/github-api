@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import io.vavr.control.Try;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -29,15 +30,16 @@ class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserResponse getUser(String login) {
-        try {
-            GitHubUser gitHubUser = gitHubClient.getUser(login);
-            User user = userRepository.findOrCreateByLogin(login);
-            user.incrementRequestCount();
-            LOGGER.info("Successfully fetched user information for login: {}", login);
-            return userResponseFactory.createUserResponse(gitHubUser);
-        } catch (RuntimeException ex) {
-            LOGGER.error("Error fetching user information for login: {}", login, ex);
-            throw new GitHubUserNotFoundException(ex.getMessage());
-        }
+        GitHubUser gitHubUser =
+                Try.of(() -> gitHubClient.getUser(login))
+                        .getOrElseThrow(error -> {
+                            String errorMessage = String.format("Error fetching user information for login: %s", login);
+                            LOGGER.error(errorMessage, error);
+                            return new GitHubUserNotFoundException(errorMessage);
+                        });
+        User user = userRepository.findOrCreateByLogin(login);
+        user.incrementRequestCount();
+        LOGGER.info("Successfully fetched user information for login: {}", login);
+        return userResponseFactory.createUserResponse(gitHubUser);
     }
 }
